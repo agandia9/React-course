@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import styles from  './message.css'
 
 class Message extends Component {

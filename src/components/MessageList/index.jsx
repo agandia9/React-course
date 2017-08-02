@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import styles from './message-list.css'
 import Message from '../Message'
 
 class MessageList extends Component {
@@ -9,7 +10,7 @@ class MessageList extends Component {
 
 	render(){
 		return (
-			<div>
+			<div className={styles.root}>
 				{this.props.messages.map(msg => {
 					return (
 						<Message
