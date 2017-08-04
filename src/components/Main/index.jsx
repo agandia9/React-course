@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
+import uuid from 'uuid'
 import MessageList from '../MessageList'
 import InputText from '../InputText'
 import ProfileBar from '../ProfileBar'
+
 
 class Main extends Component {
 	constructor(){
@@ -9,6 +11,7 @@ class Main extends Component {
 		this.state = {
 			openText:false,
 			messages: [{
+				id: uuid.v4(),
 				text: 'message default',
 				picture: 'https://pbs.twimg.com/profile_images/799369354878062593/9Fxts0_p_400x400.jpg',
 				displayName: 'Alejandro Delgado',
@@ -16,6 +19,7 @@ class Main extends Component {
 				date: Date.now()-180000
 			},
 			{
+				id: uuid.v4(),
 				text: 'another message default',
 				picture: 'https://pbs.twimg.com/profile_images/799369354878062593/9Fxts0_p_400x400.jpg',
 				displayName: 'Alejandro Delgado',
@@ -41,7 +45,7 @@ class Main extends Component {
 				<ProfileBar
 					picture={this.props.user.photoURL}
 					userName={this.props.user.email.split('@')[0]}
-					onOpenText={this.handleOpenText}
+					onOpenText={this.handleOpenText.bind(this)}
 				/>
 				{this.renderOpenText()}
 				<MessageList messages={this.state.messages} />
